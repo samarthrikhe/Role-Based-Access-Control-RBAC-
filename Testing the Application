@@ -1,0 +1,15 @@
+#Register a user
+  POST /register
+  {
+      "username": "admin_user",
+      "password": "admin_pass",
+      "role": "Admin"
+  }
+
+
+#Login a user
+  POST /login
+  {
+      "username": "admin_user",
+      "password": "admin_pass"
+  }
