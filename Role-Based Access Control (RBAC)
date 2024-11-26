@@ -1,0 +1,10 @@
+def role_required(role_name):
+    def wrapper(fn):
+        @jwt_required()
+        def decorated_function(*args, **kwargs):
+            current_user = get_jwt_identity()
+            if current_user['role'] != role_name:
+                return jsonify({"msg": "Access forbidden: insufficient permissions"}), 403
+            return fn(*args, **kwargs)
+        return decorated_function
+    return wrapper
