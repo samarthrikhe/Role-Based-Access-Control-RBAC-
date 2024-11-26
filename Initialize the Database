@@ -1,0 +1,14 @@
+if __name__ == '__main__':
+    db.create_all()
+
+    # Create roles if they don't exist
+    if not Role.query.filter_by(name='Admin').first():
+        db.session.add(Role(name='Admin'))
+    if not Role.query.filter_by(name='User').first():
+        db.session.add(Role(name='User'))
+    if not Role.query.filter_by(name='Moderator').first():
+        db.session.add(Role(name='Moderator'))
+    
+    db.session.commit()
+
+    app.run(debug=True)
