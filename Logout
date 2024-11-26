@@ -1,0 +1,5 @@
+@app.route('/logout', methods=['POST'])
+@jwt_required()
+def logout():
+    # In a real application, you would want to blacklist the token
+    return jsonify({"msg": "Logout successful"}), 200
