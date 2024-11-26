@@ -1,0 +1,9 @@
+@app.route('/admin', methods=['GET'])
+@role_required('Admin')
+def admin_only():
+    return jsonify({"msg": "Welcome, Admin!"}), 200
+
+@app.route('/user', methods=['GET'])
+@role_required('User')
+def user_only():
+    return jsonify({"msg": "Welcome, User!"}), 200
